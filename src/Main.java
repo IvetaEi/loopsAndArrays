@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Stream;
 
 public class Main {
@@ -37,15 +38,23 @@ public class Main {
 
         System.out.println("---------------- 3 uzduotis ----------------------");
 
-        String nameNsurname = "Inicialai";
-        System.out.println(nameNsurname + ": " + name.charAt(0) + surname.charAt(0));
+        String inicials = name.charAt(0) + "" + surname.charAt(0);
+        System.out.println("Inicialai: " + inicials);
 
         System.out.println("---------------- 4 uzduotis ----------------------");
 
         String last3nameLetters = name.replaceAll(".*?(.?.?.?)?$", "$1");
         String last3surnameLetters = surname.replaceAll(".*?(.?.?.?)?$", "$1");//???
+//
+//        System.out.println(last3nameLetters + last3surnameLetters);
 
-        System.out.println(last3nameLetters + last3surnameLetters);
+        if (last3nameLetters.length() <3 ){
+            System.out.println("Vardas turi maziau nei 3 raides, " + "paskutines 3 pavardes raides: " + last3surnameLetters);
+        } else if (last3surnameLetters.length() <3 ) {
+            System.out.println("Vardo 3 paskutines raides: " + last3nameLetters + ", pavarde turi maziau nei 3 raides");
+        } else {
+            System.out.println("Vardo ir pavardes paskutines 3 raides: " + last3nameLetters + last3surnameLetters);}
+
 
         System.out.println("---------------- 5 uzduotis ----------------------");
 
@@ -55,16 +64,18 @@ public class Main {
         System.out.println("---------------- 6 uzduotis ----------------------");
 
         String american6 = "“An American in Paris”";
-        System.out.println(american6.replaceAll("[aeiouAEIOU]", ""));
+        System.out.println(american6.replaceAll("[aeiouyAEIOUY]", ""));
 
         String breakfast = "“Breakfast at Tiffany's”";
-        System.out.println(breakfast.replaceAll("[aeiouAEIOU]", ""));
+        System.out.println(breakfast.replaceAll("[aeiouyAEIOUY]", ""));
 
         String space = "“2001: A Space Odyssey”";
-        System.out.println(space.replaceAll("[aeiouAEIOU]", ""));
+        System.out.println(space.replaceAll("[aeiouyAEIOUY]", ""));
 
         String life = "“It's a Wonderful Life”";
-        System.out.println(life.replaceAll("[aeiouAEIOU]", ""));
+        System.out.println(life.replaceAll("[aeiouyAEIOUY]", ""));
+
+//        System.out.println(life.replaceAll("[^aeiouyAEIOUY]", "")); varniukas pakeicia visas priebalses i balses
 
         System.out.println("---------------- 7 uzduotis ----------------------");
 
@@ -92,31 +103,29 @@ public class Main {
         System.out.println("---------------------------------------------------------");
 
 
-//        String sentence1 = "Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale";
-//        String[] words1 = sentence1.split(" "); //susiskaldom zodzius
-//
-//        int count1 = 0;
-//        for(int z = 0; z < words1.length; z++){
-//            if (words1[z].length() <= 5){        //int z
-//                System.out.println(words1[z]);
-//                count1++;
-//            }
-//        }
-//
-//        System.out.println("yra " + count1 + " zodziai(-iu), kurie turi maziau raidziu nei 6");
+        String sentence1 = "Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale";
+        String[] words1 = sentence1.split(" "); //susiskaldom zodzius
 
-        int[] numbers = new int[]{3, 5, 2, 6, 3, 8, 2, 4, 10, 2 };
-
-
-
-        for (int a = 0; a < numbers.length ;a+=2){
-            if (numbers[a] > 5)
-            {
-                System.out.println(numbers[a]);
+        int count1 = 0;
+        for(int z = 0; z < words1.length; z++){
+            if (words1[z].length() <= 5){        //int z
+                System.out.println(words1[z]);
+                count1++;
             }
         }
 
+        System.out.println("yra " + count1 + " zodziai(-iu), kurie turi maziau raidziu nei 6");
 
+//        int[] numbers = new int[]{3, 5, 2, 6, 3, 8, 2, 4, 10, 2 };
+//
+//
+//
+//        for (int a = 0; a < numbers.length ;a+=2){
+//            if (numbers[a] > 5)
+//            {
+//                System.out.println(numbers[a]);
+//            }
+//        }
 
 //        List<String> filtered = Arrays.stream(words).filter(word -> word.length() <= 5).toList();
 //        filtered.forEach(s -> System.out.println(s));
@@ -125,6 +134,17 @@ public class Main {
 //        if (countWords <= 5){
 //            System.out.println("zodziai, kurie turi 5 arba maziau raidziu yra: " + countWords);
 //        }
+
+        System.out.println("---------------- 9 uzduotis ----------------------");
+
+        String latinLetters = "abcdefghijklmnopqrstuvwxyz";
+
+        Random rd = new Random();
+        char latinletter = latinLetters.charAt(rd.nextInt(latinLetters.length()));
+        System.out.println(latinletter + latinletter + latinletter);
+//        String[] latinLetters =
+
+
 
 
 
